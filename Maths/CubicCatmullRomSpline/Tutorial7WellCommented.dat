@@ -1,0 +1,114 @@
+###############################################################################
+# Demo of how to draw a Cubic Catmull-Rom Spline
+# Author Jonathan Jones
+# 06/11/2012
+#
+# If you haven't guessed '#' indicates a comment
+# Format of file
+# 1. Define variables and functions for drawing the Cubic Catmull-Rom Spline
+# 2. Set up some environement variables for Gnu plot to know what to do with input and how to label the graph
+# 3. Plot the curves
+#
+# To execute this in GNU plot make sure you change the directory to the whre this file is located
+# Once there type the next string into the prompt: load 'whatEverTheNameOfThisFileIs.dat'
+# I hope this goes without saying but you need to include the single quotes and just replace the whatEverTheNameOfThisFileIs with what the name of this file is.
+################################################################################
+
+#########################################################################
+# Define variable and functions for drawing the Cubic Catmull-Rom Spline
+#########################################################################
+
+#
+# Define Tao value, change this value to see the graph change shape
+#
+tao = 2
+
+#
+# Vars for x component of first part of Cubic Catmull-Rom Spline  
+#
+ax0 = 0
+ax1 = 4*tao
+ax2 = 9-(7*tao)
+ax3 = (3*tao)-6
+
+#
+# Define funtion to calculate x component of first part of the Cubic Catmull-Rom Spline (used in plot function below)
+#
+ccrs1x(t) = (ax0)+(ax1)*t+(ax2)*(t**2)+(ax3)*(t**3)
+
+#
+# Vars for y component of first part of Cubic Catmull-Rom Spline  
+#
+ay0 = 0
+ay1 = 5*tao
+ay2 = 12-(12*tao)
+ay3 = -8+(7*tao)
+
+#
+# Define funtion to calculate y component of first part of the Cubic Catmull-Rom Spline (used in plot function below)
+#
+ccrs1y(t) = (ay0)+(ay1)*t+(ay2)*(t**2)+(ay3)*(t**3)
+
+#
+# Vars for x component of second part of Cubic Catmull-Rom Spline  
+#
+bx0 = 3
+bx1 = -tao
+bx2 = (5*tao)-12
+bx3 = 8-(4*tao)
+
+#
+# Define funtion to calculate x component of second part of the Cubic Catmull-Rom Spline (used in plot function below)
+#
+ccrs2x(t) = (bx0)+(bx1)*t+(bx2)*(t**2)+(bx3)*(t**3)
+
+#
+# Vars for y component of second part of Cubic Catmull-Rom Spline  
+#
+by0 = 4
+by1 = 2*tao
+by2 = -6
+by3 = 4-(2*tao)
+
+#
+# Define funtion to calculate y component of second part of the Cubic Catmull-Rom Spline (used in plot function below)
+#
+ccrs2y(t) = (by0)+(by1)*t+(by2)*(t**2)+(by3)*(t**3)
+
+#
+# Vars for x component of third part of Cubic Catmull-Rom Spline  
+#
+cx0 = -1
+cx1 = -3*tao
+cx2 = (3*tao)+3
+cx3 = -2
+
+#
+# Define funtion to calculate x component of third part of the Cubic Catmull-Rom Spline (used in plot function below)
+#
+ccrs3x(t) = (cx0)+(cx1)*t+(cx2)*(t**2)+(cx3)*(t**3)
+
+#
+# Vars for y component of third part of Cubic Catmull-Rom Spline  
+#
+cy0 = 2
+cy1 = -4*tao
+cy2 = (11*tao)-6
+cy3 = (-7*tao)+4
+
+# Define funtion to calculate y component of third part of the Cubic Catmull-Rom Spline (used in plot function below)
+ccrs3y(t) = (cy0)+(cy1)*t+(cy2)*(t**2)+(cy3)*(t**3)
+
+##############################
+# Setup for graph and curves
+##############################
+set xlabel "x-axis"														# Set a label for the x axis
+set ylabel "y-axis"														# Set a label for the y axis
+set title "Cubic Catmull-Rom Spline, tao = 1"							# Set a title for the graph
+set parametric															# Set it to parametric mode
+set trange [0:1]														# Set the range 0 <= t <= 1
+
+##############################
+# Draw the curves
+##############################
+plot ccrs1x(t), ccrs1y(t), ccrs2x(t), ccrs2y(t), ccrs3x(t), ccrs3y(t) 	# Plot curves specified above

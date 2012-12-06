@@ -1,0 +1,20 @@
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdftex 2012.11.20)  20 NOV 2012 02:55
+entering extended mode
+**C:/Users/Adam/Desktop/check.txt
+(C:/Users/Adam/Desktop/check.txt)
+Runaway argument?
+ \\ m\quad =\quad c\quad +\quad k\quad +\quad 1\\ \\ m\quad =\quad 6,\ETC.
+! File ended while scanning use of \\.
+<inserted text> 
+                \par 
+<*> C:/Users/Adam/Desktop/check.txt
+                                   
+? 
+! Emergency stop.
+<inserted text> 
+                \par 
+<*> C:/Users/Adam/Desktop/check.txt
+                                   
+End of file on the terminal!
+
+!  ==> Fatal error occurred, no output PDF file produced!
